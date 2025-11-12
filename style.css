@@ -1,0 +1,121 @@
+/* Configure Tailwind to use a dark theme by default */
+:root {
+    color-scheme: dark;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* Deep background gradient */
+    color: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Glassmorphism Effect for Cards */
+.glass-card {
+    background: rgba(30, 41, 59, 0.6); /* Slightly transparent dark slate */
+    border-radius: 20px;
+    border: 1px solid rgba(100, 116, 139, 0.3); /* Subtle border */
+    backdrop-filter: blur(15px); /* The glass effect */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 50px rgba(99, 102, 241, 0.1); /* Deep outer shadow & neon glow */
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 70px rgba(99, 102, 241, 0.2);
+}
+
+/* Styling for the large timer digits - Neon Glow */
+#timer-display {
+    color: #6366f1; /* Indigo 500 */
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -3px;
+    text-shadow: 
+        0 0 10px rgba(99, 102, 241, 0.6), 
+        0 0 20px rgba(99, 102, 241, 0.4);
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { opacity: 0.9; }
+    to { opacity: 1; }
+}
+
+.action-button {
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.action-button:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.action-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    filter: grayscale(10%);
+}
+
+.bg-log { background-color: #3b82f6; } /* Blue for LOG */
+.hover\:bg-log:hover:not(:disabled) { background-color: #2563eb; }
+.shadow-log { box-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
+
+.bg-lap { background-color: #475569; } /* Slate for LAP/RESET */
+.hover\:bg-lap:hover:not(:disabled) { background-color: #334155; }
+.shadow-lap { box-shadow: 0 0 10px rgba(71, 85, 105, 0.3); }
+
+.bg-start { background-color: #10b981; } /* Emerald for START */
+.hover\:bg-start:hover:not(:disabled) { background-color: #059669; }
+.shadow-start { box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+
+.bg-stop { background-color: #ef4444; } /* Red for STOP */
+.hover\:bg-stop:hover:not(:disabled) { background-color: #dc2626; }
+.shadow-stop { box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
+
+/* Custom Input styling */
+#activity-input {
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    background: rgba(30, 41, 59, 0.4);
+}
+#activity-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+}
+
+/* Modal styling */
+.modal {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: #1e293b;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
